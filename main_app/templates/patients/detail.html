@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Patient Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ cat.name }}</span>
+    <p>Name: {{ patient.name }}</p>
+      <p>DOB: {{ patient.dob }}</p>
+      <p>Phone #: {{ patient.phoneNo }}</p>
+      <p>Address: {{ patient.address }}</p>
+      <p>City/State: {{ patient.cityState }}</p>
+  </div>
+</div>
+
+{% endblock %}

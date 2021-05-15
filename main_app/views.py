@@ -12,15 +12,7 @@ def patients_index(request):
   patients = Patient.objects.all()
   return render(request, 'patients/index.html', { 'patients': patients })
 
-class Patient:  # Note that parens are optional if not inheriting from another class
-  def __init__(self, name, dob, phoneNo, address, cityState):
-    self.name = name
-    self.dob = dob
-    self.phoneNo = phoneNo
-    self.address = address
-    self.cityState = cityState
+def patients_detail(request, patient_id):
+  patient = Patient.objects.get(id=patient_id)
+  return render(request, 'patients/detail.html', { 'patient': patient })
 
-patients = [
-  Patient('Jessica', '07/05/1970', '989-678-7894', '456 Joy Rd', 'Detroit, MI'),
-  Patient('Tamika Ray', '07/25/1990', '989-888-7894', '456 Terry Rd', 'Saginaw, MI'),
-]

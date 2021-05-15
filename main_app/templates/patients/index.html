@@ -5,6 +5,7 @@
 
 {% for patient in patients %}
   <div class="card">
+    <a href="/patients/{{ patient.id }}">
     <div class="card-content">
       <span class="card-title">{{ cat.name }}</span>
       <p>Name: {{ patient.name }}</p>
@@ -16,3 +17,9 @@
 {% endfor %}
 
 {% endblock %}
+
+>>> p = Patient(name="Jessica", dob="07_14_1970",
+>>> phoneNo="989-647-7988", address="656 Joy Rd", cityState="Detroit,MI")
+>>> p.__dict__
+{..., 'id': None, 'name': 'Jessica', 'dob': '07_14_1970',
+ 'phoneNo': '989-647-7988', 'address': '656 Joy Rd', 'cityState': 'Detroit,MI'}
