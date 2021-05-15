@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Patient List</h1>
+
+{% for patient in patients %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ cat.name }}</span>
+      <p>Name: {{ patient.name }}</p>
+      <p>DOB: {{ patient.dob }}</p>
+      <p>City/State: {{ patient.cityState }}</p>
+      
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
