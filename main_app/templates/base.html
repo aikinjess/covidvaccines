@@ -14,12 +14,13 @@
     <nav>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;CatCollector</a></li>
+          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;GET THE VAX</a></li>
         </ul>
         <ul class="right">
-            <li><a href="/about">About</a></li>
-            <!-- new markup below -->
-            <li><a href="/patients">View All My Patients</a></li>
+            <!-- <li><a href="/about">About</a></li> -->
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'patients_create' %}">Add a Patient</a></li>
+        <li><a href="{% url 'index' %}">View All Patients</a></li>
         </ul>
       </div>
     </nav>

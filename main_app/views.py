@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Patient
 # Create your views here.
 
@@ -16,3 +17,6 @@ def patients_detail(request, patient_id):
   patient = Patient.objects.get(id=patient_id)
   return render(request, 'patients/detail.html', { 'patient': patient })
 
+class PatientCreate(CreateView):
+  model = Patient
+  fields = '__all__'
