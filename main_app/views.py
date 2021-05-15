@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
 from .models import Patient
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # Create your views here.
 
 def home(request):
@@ -20,3 +21,13 @@ def patients_detail(request, patient_id):
 class PatientCreate(CreateView):
   model = Patient
   fields = '__all__'
+  success_url = '/patients/'
+
+class PatientUpdate(UpdateView):
+  model = Patient
+  # Let's disallow the renaming of a cat by excluding the name field!
+  fields = ['name', 'dob', 'phoneNo', 'address', 'cityState']
+
+class PatientDelete(DeleteView):
+  model = Patient
+  success_url = '/patients/'
