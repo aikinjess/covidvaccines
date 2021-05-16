@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Patient, Dose, SideEffect
+from .models import Patient, Dose, Vaccine, Photo
 
 # Register your models here.
 
 admin.site.register(Patient)
 admin.site.register(Dose)
-admin.site.register(SideEffect)
+admin.site.register(Vaccine)
+admin.site.register(Photo)

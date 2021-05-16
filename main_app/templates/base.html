@@ -21,6 +21,8 @@
             <!-- changes below -->
             <li><a href="{% url 'about' %}">About</a></li>
             {% if user.is_authenticated %}
+              <li><a href="{% url 'vaccines_create' %}">Add a Vaccine</a></li>
+              <li><a href="{% url 'vaccines_index' %}">View All Vaccine</a></li>
               <li><a href="{% url 'patients_create' %}">Add a Patient</a></li>
               <li><a href="{% url 'index' %}">View Patients</a></li>
               <li><a href="{% url 'logout' %}">Log Out</a></li>

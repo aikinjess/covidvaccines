@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Vaccine List</h1>
+
+{% for vaccine in vaccine_list %}
+  <a href="{% url 'vaccines_detail' vaccine.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ vaccine.name }}</span>
+            <p>Location: {{ vaccine.location }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}
