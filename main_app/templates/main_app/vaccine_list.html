@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Vaccine List</h1>
+<h3>Vaccine List</h3>
 
 {% for vaccine in vaccine_list %}
   <a href="{% url 'vaccines_detail' vaccine.id %}">
