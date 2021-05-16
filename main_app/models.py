@@ -24,7 +24,7 @@ class Patient(models.Model):
   phoneNo = models.TextField(max_length=250)
   address = models.TextField(max_length=250)
   cityState = models.TextField(max_length=250)
-  sideeffects = models.ManyToManyField(SideEffect)
+  
 
   def __str__(self):
     return self.name
@@ -48,5 +48,3 @@ class Dose(models.Model):
   def get_absolute_url(self):
     return reverse('detail', kwargs={'patient_id': self.id})
 
-def dose_for_today(self):
-    return self.dose_set.filter(date=date.today()).count() >= len(DOSENO)
