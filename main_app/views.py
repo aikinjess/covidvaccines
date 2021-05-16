@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
-from .models import Patient
+from .models import Patient, SideEffect
 from .forms import DoseForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.shortcuts import render, redirect
-
+from django.views.generic import ListView, DetailView
 # Create your views here.
 
 def home(request):
@@ -47,3 +47,22 @@ class PatientUpdate(UpdateView):
 class PatientDelete(DeleteView):
   model = Patient
   success_url = '/patients/'
+
+
+class SideEffectList(ListView):
+  model = SideEffect
+
+class SideEffectDetail(DetailView):
+  model = SideEffect
+
+class SideEffectCreate(CreateView):
+  model = SideEffect
+  fields = '__all__'
+
+class SideEffectUpdate(UpdateView):
+  model = SideEffect
+  fields = ['name', 'description']
+
+class SideEffectDelete(DeleteView):
+  model = SideEffect
+  success_url = '/sideeffects/'
