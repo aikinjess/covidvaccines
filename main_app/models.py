@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 DOSENO = (
     ('F', 'First'),
@@ -22,6 +23,9 @@ class Dose(models.Model):
   )
   
   patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+
+  def dose_for_today(self):
+    return self.dose_set.filter(date=date.today()).count() >= len(DOSENO)
 
   def __str__(self):
     return f"{self.get_doseno_display()} on {self.date}"

@@ -25,6 +25,12 @@
         {{ dose_form.as_p }}
         <input type="submit" class="btn" value="Add Dose">
       </form>
+      <br>
+      {% if patient.dose_for_today %}
+        <div class="card-panel teal-text center-align">{{patient.name}} has been vaccinated.</div>
+      {% else %}
+        <div class="card-panel red-text center-align">{{patient.name}} has not been vaccinated.</div>
+      {% endif %}
     <table class="striped">
       <thead>
         <tr><th>Date</th><th>Dose</th></tr>
