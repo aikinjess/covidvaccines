@@ -15,5 +15,6 @@ urlpatterns = [
   path('sideeffects/<int:pk>/update/', views.SideEffectUpdate.as_view(), name='sideeffects_update'),
   path('sideeffects/<int:pk>/delete/', views.SideEffectDelete.as_view(), name='sideeffects_delete'),
   path('sideeffects/', views.SideEffectList.as_view(), name='sideeffects_index'),
+  
 ]
 

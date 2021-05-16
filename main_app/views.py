@@ -19,11 +19,11 @@ def patients_index(request):
 
 def patients_detail(request, patient_id):
   patient = Patient.objects.get(id=patient_id)
-  # instantiate FeedingForm to be rendered in the template
+  sideeffects_patient_doesnt_have = SideEffect.objects.exclude(id__in = patient.sideeffects.all().values_list('id'))
   dose_form = DoseForm()
   return render(request, 'patients/detail.html', {
     # include the cat and feeding_form in the context
-    'patient': patient, 'dose_form': dose_form
+    'patient': patient, 'dose_form': dose_form, 'sideeffects': sideeffects_patient_doesnt_have
   })
 
 def add_dose(request, patient_id):
@@ -32,6 +32,10 @@ def add_dose(request, patient_id):
     new_dose = form.save(commit=False)
     new_dose.patient_id = patient_id
     new_dose.save()
+  return redirect('detail', patient_id=patient_id)
+
+def assoc_sideeffect(request, patient_id, sideeffect_id):
+  Patient.objects.get(id=patient_id).sideeffects.add(sideeffect_id)
   return redirect('detail', patient_id=patient_id)
 
 class PatientCreate(CreateView):
