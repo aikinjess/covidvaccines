@@ -3,6 +3,8 @@ from django.views.generic.edit import CreateView
 from .models import Patient
 from .forms import DoseForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.shortcuts import render, redirect
+
 # Create your views here.
 
 def home(request):
@@ -23,6 +25,14 @@ def patients_detail(request, patient_id):
     # include the cat and feeding_form in the context
     'patient': patient, 'dose_form': dose_form
   })
+
+def add_dose(request, patient_id):
+  form = DoseForm(request.POST)
+  if form.is_valid():
+    new_dose = form.save(commit=False)
+    new_dose.patient_id = patient_id
+    new_dose.save()
+  return redirect('detail', patient_id=patient_id)
 
 class PatientCreate(CreateView):
   model = Patient

@@ -4,4 +4,4 @@ from .models import Dose
 class DoseForm(ModelForm):
   class Meta:
     model = Dose
-    fields = ['date']
+    fields = ['date','doseno' ]
